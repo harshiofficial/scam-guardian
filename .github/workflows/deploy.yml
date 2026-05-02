@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     
     steps:
     - uses: actions/checkout@v4
@@ -60,7 +62,7 @@ jobs:
         zip -r ../scam-guardian-backend.zip dist/ node_modules/ package.json
     
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: backend-build
         path: scam-guardian-backend.zip
@@ -100,7 +102,7 @@ jobs:
         echo "Note: Full mobile build requires Android SDK/Xcode"
     
     - name: Upload mobile build logs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: mobile-build-logs
         path: |
