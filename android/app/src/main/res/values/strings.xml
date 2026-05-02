@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ScamGuardian</string>
+
+    <!-- Accessibility Service strings shown in Android Settings -->
+    <string name="accessibility_service_label">ScamGuardian Message Scanner</string>
+    <string name="accessibility_service_description">
+        ScamGuardian reads notifications from WhatsApp, SMS, and email apps to check
+        for scams and warn you before you interact with dangerous content.
+        No message content is stored or shared without your permission.
+    </string>
+</resources>

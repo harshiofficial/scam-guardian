@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Info.plist — ScamGuardian Share Extension target
+  Requirements: 1.1
+
+  Activation rules:
+    - NSExtensionActivationSupportsText          : accepts plain-text shares
+    - NSExtensionActivationSupportsWebURLWithMaxCount : accepts URL shares (max 1)
+
+  The principal class is ShareViewController which handles all content
+  extraction and App Group persistence without presenting any custom UI.
+-->
+<plist version="1.0">
+<dict>
+    <!-- Bundle identity -->
+    <key>CFBundleDisplayName</key>
+    <string>ScamGuardian</string>
+
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+
+    <key>CFBundlePackageType</key>
+    <string>XPC!</string>
+
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+
+    <key>CFBundleVersion</key>
+    <string>1</string>
+
+    <!-- Extension configuration -->
+    <key>NSExtension</key>
+    <dict>
+        <!-- The view controller that handles the share action -->
+        <key>NSExtensionPrincipalClass</key>
+        <string>$(PRODUCT_MODULE_NAME).ShareViewController</string>
+
+        <!-- Extension point: Share -->
+        <key>NSExtensionPointIdentifier</key>
+        <string>com.apple.share-services</string>
+
+        <!-- Activation rules: accept text and/or a single URL -->
+        <key>NSExtensionAttributes</key>
+        <dict>
+            <key>NSExtensionActivationRule</key>
+            <dict>
+                <!-- Accept plain-text shares (e.g. selected text in Mail, WhatsApp) -->
+                <key>NSExtensionActivationSupportsText</key>
+                <true/>
+
+                <!-- Accept URL shares (e.g. Safari share sheet, links in apps) -->
+                <key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+                <integer>1</integer>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Accessibility Service configuration for ScamGuardianAccessibilityService.
+
+    - accessibilityEventTypes: only TYPE_NOTIFICATION_STATE_CHANGED is needed
+    - accessibilityFeedbackType: FEEDBACK_GENERIC (no audio/haptic feedback)
+    - notificationTimeout: 100 ms debounce
+    - packageNames: the monitored messaging apps
+
+    Requirements: 1.1
+-->
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeNotificationStateChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="100"
+    android:description="@string/accessibility_service_description"
+    android:packageNames="com.whatsapp,com.whatsapp.w4b,com.android.mms,com.google.android.apps.messaging,com.samsung.android.messaging,com.google.android.gm,com.microsoft.office.outlook"
+    android:canRetrieveWindowContent="false" />
